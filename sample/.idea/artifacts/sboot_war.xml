@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sboot:war">
+    <output-path>$PROJECT_DIR$/sboot/target</output-path>
+    <root id="archive" name="sboot.war">
+      <element id="artifact" artifact-name="sboot:war exploded" />
+    </root>
+  </artifact>
+</component>

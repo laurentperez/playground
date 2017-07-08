@@ -1,7 +1,5 @@
 package foo.bar;
 
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import java.util.Arrays;
 import java.util.function.Function;
 import java.util.function.Predicate;
