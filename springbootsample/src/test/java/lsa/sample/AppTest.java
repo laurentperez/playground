@@ -1,5 +1,7 @@
 package lsa.sample;
 
+import lsa.sample.domain.User;
+import lsa.sample.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +26,22 @@ public class AppTest {
     private HomeController controller;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private MockMvc mockMvc;
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello World")));
+    }
+
+    @Test
+    public void users() throws Exception {
+        Iterable<User> users = this.userService.loadAll();
+        System.out.println("users = " + users);
+
     }
 
 }
