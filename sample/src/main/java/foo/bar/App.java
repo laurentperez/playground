@@ -1,8 +1,14 @@
 package foo.bar;
 
+import lombok.val;
+
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Hello world!
@@ -19,7 +25,12 @@ public class App
         Predicate<String> startsWithJ = (n) -> n.startsWith("J");
         Predicate<String> fourLetterLong = (n) -> n.length() == 4;
 
-        Arrays.asList("John","Bob","Eric").stream()
+        val x = "";
+        StringWriter sw = new StringWriter();
+
+        String tenStrings = IntStream.rangeClosed(1, 10).mapToObj(i -> i == 1 ? "de " + i : " à " + i).collect(Collectors.joining());
+        System.out.println("collect = " + tenStrings);
+        Stream.of("John","Bob","Eric")
                 .filter(startsWithJ.and(fourLetterLong).negate())
                 .map(String::toUpperCase)
                 .map(func(String::toLowerCase))

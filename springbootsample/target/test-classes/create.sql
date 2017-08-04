@@ -1,0 +1,1 @@
+create TABLE xxx (id VARCHAR(10))

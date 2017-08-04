@@ -1,0 +1,1 @@
+INSERT into xxx (id) VALUES('zzz')
